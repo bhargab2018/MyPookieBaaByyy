@@ -1,6 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💖</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right,#ffd6ec,#ffe6f7);
+}
+
+/* Title */
+h1 {
+    text-align:center;
+    color:#ff3399;
+    margin:20px;
+}
+
+/* Section */
+.section {
+    background: rgba(255,255,255,0.6);
+    margin:20px;
+    padding:20px;
+    border-radius:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.section h2 {
+    text-align:center;
+    color:#ff4da6;
+}
+
+/* Memory Box */
+.memory {
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    margin:15px auto;
+    width:80%;
+    text-align:center;
+}
+
+/* Gallery */
+.gallery {
+    column-count:3;
+    column-gap:10px;
+}
+
+.gallery img {
+    width:100%;
+    margin-bottom:10px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Music Button */
+.music-btn {
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#ff4da6;
+    color:white;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Hearts */
+.heart {
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform:translateY(0);}
+    100% {transform:translateY(-100vh);}
+}
+
+/* Responsive */
+@media(max-width:800px){
+    .gallery { column-count:2; }
+}
+@media(max-width:500px){
+    .gallery { column-count:1; }
+}
+</style>
+</head>
+
 <body>
-<h1>It works 💖</h1>
+
+<h1>Our Memories 💖</h1>
+
+<!-- MUSIC -->
+<button class="music-btn" onclick="playMusic()">🎵 Play Our Song</button>
+
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FIRST MEETING -->
+<div class="section">
+<h2>December 2024 💖</h2>
+
+<div class="memory">
+This was the first time we met… and honestly, I didn’t know then how special you would become to me.  
+But that moment was the beginning of everything 💕
+</div>
+
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+</div>
+
+</div>
+
+<!-- WAIT -->
+<div class="section">
+<h2>The Wait… 💭</h2>
+
+<div class="memory">
+We didn’t meet for months because of our 12th boards…  
+but somehow, you were always on my mind.  
+And then came April… 💖
+</div>
+
+</div>
+
+<!-- APRIL -->
+<div class="section">
+<h2>April 2025 🌸</h2>
+
+<div class="memory">
+After so long, finally seeing you again felt unreal…  
+like everything just paused and it was only us 💕
+</div>
+
+<div class="gallery">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+</div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+function playMusic(){
+    document.getElementById("music").play();
+}
+
+setInterval(function(){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},500);
+</script>
+
 </body>
 </html>
