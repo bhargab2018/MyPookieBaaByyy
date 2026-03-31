@@ -8,24 +8,21 @@
 <style>
 body {
     margin:0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(to bottom right,#ffd6ec,#ffe6f7);
 }
 
-/* Title */
 h1 {
     text-align:center;
     color:#ff3399;
     margin:20px;
 }
 
-/* Section */
 .section {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.7);
     margin:20px;
     padding:20px;
-    border-radius:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    border-radius:20px;
 }
 
 .section h2 {
@@ -33,17 +30,15 @@ h1 {
     color:#ff4da6;
 }
 
-/* Memory Box */
 .memory {
     background:white;
     padding:15px;
-    border-radius:15px;
+    border-radius:10px;
     margin:15px auto;
     width:80%;
     text-align:center;
 }
 
-/* Gallery */
 .gallery {
     column-count:3;
     column-gap:10px;
@@ -52,16 +47,10 @@ h1 {
 .gallery img {
     width:100%;
     margin-bottom:10px;
-    border-radius:15px;
-    transition:0.3s;
+    border-radius:10px;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* Music Button */
-.music-btn {
+button {
     display:block;
     margin:20px auto;
     padding:10px 20px;
@@ -73,7 +62,7 @@ h1 {
     cursor:pointer;
 }
 
-/* Hearts */
+/* hearts */
 .heart {
     position:fixed;
     bottom:-10px;
@@ -85,14 +74,6 @@ h1 {
     0% {transform:translateY(0);}
     100% {transform:translateY(-100vh);}
 }
-
-/* Responsive */
-@media(max-width:800px){
-    .gallery { column-count:2; }
-}
-@media(max-width:500px){
-    .gallery { column-count:1; }
-}
 </style>
 </head>
 
@@ -100,20 +81,18 @@ h1 {
 
 <h1>Our Memories 💖</h1>
 
-<!-- MUSIC -->
-<button class="music-btn" onclick="playMusic()">🎵 Play Our Song</button>
+<button onclick="playMusic()">🎵 Play Our Song</button>
 
-<audio id="music" loop>
+<audio id="music">
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- FIRST MEETING -->
+<!-- DECEMBER -->
 <div class="section">
 <h2>December 2024 💖</h2>
 
 <div class="memory">
-This was the first time we met… and honestly, I didn’t know then how special you would become to me.  
-But that moment was the beginning of everything 💕
+This was the first time we met… and I didn’t know then how special you would become to me 💕
 </div>
 
 <div class="gallery">
@@ -125,12 +104,10 @@ But that moment was the beginning of everything 💕
 
 <!-- WAIT -->
 <div class="section">
-<h2>The Wait… 💭</h2>
+<h2>The Wait 💭</h2>
 
 <div class="memory">
-We didn’t meet for months because of our 12th boards…  
-but somehow, you were always on my mind.  
-And then came April… 💖
+We didn’t meet for months because of our boards… but you were always on my mind 💖
 </div>
 
 </div>
@@ -140,8 +117,7 @@ And then came April… 💖
 <h2>April 2025 🌸</h2>
 
 <div class="memory">
-After so long, finally seeing you again felt unreal…  
-like everything just paused and it was only us 💕
+After so long, finally seeing you again felt so special… like everything was perfect 💕
 </div>
 
 <div class="gallery">
@@ -153,19 +129,19 @@ like everything just paused and it was only us 💕
 
 </div>
 
-<!-- SCRIPT -->
 <script>
 function playMusic(){
-    document.getElementById("music").play();
+    var audio = document.getElementById("music");
+    audio.play();
 }
 
 setInterval(function(){
-    let heart=document.createElement("div");
+    var heart=document.createElement("div");
     heart.className="heart";
     heart.innerHTML="❤️";
     heart.style.left=Math.random()*100+"vw";
     document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
+    setTimeout(function(){heart.remove();},6000);
 },500);
 </script>
 
